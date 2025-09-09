@@ -1,0 +1,104 @@
+body{
+background-color: rgb(32, 32, 32);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#div1{
+   width: 400px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #212121;
+    padding: 40px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 8px 10px rgb(0, 0, 0);
+}
+
+#div2{
+   width: 500px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #212121;
+    padding: 40px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 8px 10px rgb(0, 0, 0);
+    margin-left: 10px;
+}
+
+.txttitles{
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.txtmasc{
+    color: rgb(0, 136, 255);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.txtfem{
+    color: rgb(255, 0, 191);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.txtrelatorio{
+    color: rgb(0, 255, 85);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    text-decoration: double ;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.btnfiltros{
+    background-color: rgb(40, 56, 197);
+    color: rgb(255, 255, 255);
+    border-radius: 8%;
+    border-color: rgb(28, 28, 133);
+}
+
+.btnfiltros:hover{
+    background-color: rgb(11, 22, 184);
+}
+
+.btninserir{
+    background-color: rgb(40, 56, 197);
+    color: rgb(255, 255, 255);
+    border-radius: 10%;
+    border-color: rgb(28, 28, 133);
+    width: 100px;
+}
+
+.btninserir:hover{
+    background-color: rgb(11, 22, 184);
+}
+
+li{
+    color: aliceblue;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.subtitulo{
+    margin: 20px;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.subtitulo2{
+    margin: 60px;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.subtitulo3{
+    margin: 5px;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.subtitulo4{
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}

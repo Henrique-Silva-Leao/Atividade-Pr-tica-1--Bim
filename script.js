@@ -5,58 +5,75 @@ let generoMasc = document.getElementById("inputSexoMasc")
 let generoFem = document.getElementById("inputSexoFem")
 let media = document.getElementById("txtMedia")
 const btnCadastrar = document.getElementById("btnCadastrar")
+const btnNomeCrescente = document.getElementById("btnNomeCrescente")
 const listadealunos = document.getElementById("listadealunos")
 let listaAlunos = []
 
 
-btnCadastrar.onclick = function(){
+//Função de ordenação Buble Sort - Nome Crescente
+function bubbleSort(vetor, fnComp) {
+     let trocou;
+
+     do {
+          trocou = false;
+          for (let i = 0; i < vetor.length - 1; i++) {
+               if (fnComp(vetor[i], vetor[i + 1])) {
+                    [vetor[i], vetor[i + 1]] = [vetor[i + 1], vetor[i]];
+                    trocou = true;
+               }
+          }
+     } while (trocou);
+}
+
+//Função para cadastrar aluno
+btnCadastrar.onclick = function () {
 
      // Verificar qual o genero escolhido
-    let genero = ""
-    if(generoMasc.checked){
+     let genero = ""
+     if (generoMasc.checked) {
 
-         genero = generoMasc.value
-    }else if(generoFem.checked){
-         genero = generoFem.value
-    }else{
-        alert("Selecione um genero")
-    }
-   
-    //Logica para verificar se aprovado ou reprovado
-    let resultado
-    if(media.value >= 6){
-         resultado = "Aprovado"
-    }else{
-         resultado = "Reprovado" 
-    }
+          genero = generoMasc.value
+     } else if (generoFem.checked) {
+          genero = generoFem.value
+     } else {
+          alert("Selecione um genero")
+     }
 
-    //Tranformar dados do aluno em Objeto
-    const AlunoOBJ = {
-        nome: nomeAluno.value,
-        RA: RAaluno.value,
-        idade: idade.value,
-        genero: genero,
-        media: media.value,
-        resultado: resultado
-    }
+     //Logica para verificar se aprovado ou reprovado
+     let resultado
+     if (media.value >= 6) {
+          resultado = "Aprovado"
+     } else {
+          resultado = "Reprovado"
+     }
 
-    // Alimentando a lista com os alunos cadastrados
-    listaAlunos.push(AlunoOBJ)
+     //Tranformar dados do aluno em Objeto
+     const AlunoOBJ = {
+          nome: nomeAluno.value,
+          RA: RAaluno.value,
+          idade: idade.value,
+          genero: genero,
+          media: media.value,
+          resultado: resultado
+     }
 
-    // verificação do sistema
-    console.table(AlunoOBJ)
-    console.table(listaAlunos)
+     // Alimentando a lista com os alunos cadastrados
+     listaAlunos.push(AlunoOBJ)
 
-    renderizarListaAlunos();
+     // verificação do sistema
+     console.table(AlunoOBJ)
+     console.table(listaAlunos)
+
+     renderizarListaAlunos();
 
 }
 
 //função para renderizar na tela os alunos cadastrados
-function renderizarListaAlunos(){
+function renderizarListaAlunos() {
 
      let htmltext = ""
 
-     for (const aluno of listaAlunos){
+     for (const aluno of listaAlunos) {
           htmltext += `<li> ${aluno.nome} - ${aluno.RA} - ${aluno.idade} - ${aluno.genero} - ${aluno.media} - ${aluno.resultado} </li>`
      }
 
@@ -65,8 +82,10 @@ function renderizarListaAlunos(){
      console.log(listaAlunos.nome)
 }
 
-
-
-
-
-
+// Função de ordenação Buble Sort
+btnNomeCrescente.onclick = function () {
+     bubbleSort(
+          listaAlunos,
+          (elem1, elem2) => elem1.nome.toLowerCase() > elem2.nome.toLowerCase());
+     renderizarListaAlunos();
+};

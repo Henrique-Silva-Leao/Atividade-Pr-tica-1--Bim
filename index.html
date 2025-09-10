@@ -9,56 +9,57 @@
 </head>
 
 <body>
+    <mains>
+        <div id="div1">
+            <p class="txttitles">Nome Completo do Aluno:</p>
+            <input id="txtNome" type="text" placeholder="José da Costas Soares">
 
-    <div id="div1">
-        <p class="txttitles">Nome Completo do Aluno:</p>
-        <input id="txtNome" type="text" placeholder="José da Costas Soares">
+            <p class="txttitles">Insira o RA do Aluno:</p>
+            <input id="txtRA" type="number" placeholder="1090472326001" maxlength="14">
 
-        <p class="txttitles">Insira o RA do Aluno:</p>
-        <input id="txtRA" type="number" placeholder="1090472326001"  maxlength="14" >
+            <p class="txttitles">Insira a Idade do Aluno:</p>
+            <input id="txtIdade" type="number" placeholder="20" maxlength="3">
 
-        <p class="txttitles">Insira a Idade do Aluno:</p>
-        <input id="txtIdade" type="number" placeholder="20"  maxlength="3" >
+            <p class="txttitles">Sexo do Aluno</p>
 
-        <p class="txttitles">Sexo do Aluno</p>
+            <grid>
+                <input type="radio" name="sexo" id="inputSexoMasc" value="Masculino">
+                <label for="inputSexoMasc" class="txtmasc">Masculino</label>
 
-        <grid>
-            <input type="radio" name="sexo" id="inputSexoMasc" value="Masculino">
-            <label for="inputSexoMasc" class="txtmasc">Masculino</label>
+                <input type="radio" name="sexo" id="inputSexoFem" value="Feminino">
+                <label for="inputSexoFem" class="txtfem">Feminino</label>
+            </grid>
 
-            <input type="radio" name="sexo" id="inputSexoFem" value="Feminino">
-            <label for="inputSexoFem" class="txtfem">Feminino</label>
-        </grid>
+            <p class="txttitles">Insira a Media do Aluno:</p>
+            <input id="txtMedia" type="number" placeholder="10" min="0" max="10">
+            <br>
+            <br>
+            <button id="btnCadastrar" class="btninserir">Inserir</button>
+        </div>
 
-        <p class="txttitles">Insira a Media do Aluno:</p>
-        <input id="txtMedia" type="number" placeholder="10" min="0" max="10">
-        <br>
-        <br>
-        <button id="btnCadastrar" class="btninserir">Inserir</button>
-    </div>
+        <div id="div2">
+            <h3 class="txtrelatorio">Relatorio de Alunos</h3>
 
-    <div id="div2">
-        <h3 class="txtrelatorio">Relatorio de Alunos</h3>
+            <grid>
+                <button id="btnNomeCrescente" class="btnfiltros">Nome (crescente)</button>
+                <button id="btnRaDecrescente" class="btnfiltros">RA (decrescente)</button>
+                <button id="btnAprovados" class="btnfiltros">Aprovados (crescente)</button>
+            </grid>
+            <br>
+            <grid>
+                <span class="subtitulo">Nome:</span>
+                <span class="subtitulo2">RA:</span>
+                <span class="subtitulo3">Idade:</span>
+                <span class="subtitulo4">Sexo:</span>
+                <span class="subtitulo4">Media:</span>
+                <span class="subtitulo4">Situação:</span>
+                <button onclick="window.print()">Imprimir Página</button>
+            </grid>
+            <ul id="listadealunos"></ul>
 
-        <grid>
-            <button id="btnNomeCrescente" class="btnfiltros">Nome (crescente)</button>
-            <button id="btnRaDecrescente" class="btnfiltros">RA (decrescente)</button>
-            <button id="btnAprovados" class="btnfiltros">Aprovados (crescente)</button>
-        </grid>
-        <br>
-        <grid>
-            <span class="subtitulo">Nome:</span>
-            <span class="subtitulo2">RA:</span>
-            <span class="subtitulo3">Idade:</span>
-            <span class="subtitulo4">Sexo:</span>
-            <span class="subtitulo4">Media:</span>
-            <span class="subtitulo4">Situação:</span>
-            <button onclick="window.print()" >Imprimir Página</button>
-        </grid>
-        <ul id="listadealunos"></ul>
-
-    </div>
-    
+        </div>
+    </mains>
+    <footer> Desenvolvido por <strong>Henrique Silva & Ryan Cristian</strong> - 3° ADS Fatec Franca</footer>
 </body>
 
 <script src="script.js"></script>

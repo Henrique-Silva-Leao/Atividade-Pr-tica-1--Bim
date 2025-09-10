@@ -6,6 +6,7 @@ let generoFem = document.getElementById("inputSexoFem")
 let media = document.getElementById("txtMedia")
 const btnCadastrar = document.getElementById("btnCadastrar")
 const btnNomeCrescente = document.getElementById("btnNomeCrescente")
+const btnRaDecrescente = document.getElementById("btnRaDecrescente")
 const listadealunos = document.getElementById("listadealunos")
 let listaAlunos = []
 
@@ -82,10 +83,20 @@ function renderizarListaAlunos() {
      console.log(listaAlunos.nome)
 }
 
-// Função de ordenação Buble Sort
+// Botão - Função de ordenação Nomes 
 btnNomeCrescente.onclick = function () {
      bubbleSort(
           listaAlunos,
-          (elem1, elem2) => elem1.nome.toLowerCase() > elem2.nome.toLowerCase());
+          (elem1, elem2) => elem1.nome.toLowerCase() > elem2.nome.toLowerCase()
+     )
      renderizarListaAlunos();
-};
+}
+
+// Botão - Função ordenação RA Descrescente
+btnRaDecrescente.onclick = function () {
+    bubbleSort(
+        listaAlunos,
+        (elem1, elem2) => elem1.RA < elem2.RA 
+    )
+    renderizarListaAlunos()
+}

@@ -15,10 +15,10 @@
         <input id="txtNome" type="text" placeholder="José da Costas Soares">
 
         <p class="txttitles">Insira o RA do Aluno:</p>
-        <input id="txtRA" type="number" placeholder="1090472326001">
+        <input id="txtRA" type="number" placeholder="1090472326001"  maxlength="14" >
 
         <p class="txttitles">Insira a Idade do Aluno:</p>
-        <input id="txtIdade" type="number" placeholder="20">
+        <input id="txtIdade" type="number" placeholder="20"  maxlength="3" >
 
         <p class="txttitles">Sexo do Aluno</p>
 
@@ -31,7 +31,7 @@
         </grid>
 
         <p class="txttitles">Insira a Media do Aluno:</p>
-        <input id="txtMedia" type="number" placeholder="10">
+        <input id="txtMedia" type="number" placeholder="10" min="0" max="10">
         <br>
         <br>
         <button id="btnCadastrar" class="btninserir">Inserir</button>
@@ -43,7 +43,7 @@
         <grid>
             <button id="btnNomeCrescente" class="btnfiltros">Nome (crescente)</button>
             <button id="btnRaDecrescente" class="btnfiltros">RA (decrescente)</button>
-            <button class="btnfiltros">Aprovados (crescente)</button>
+            <button id="btnAprovados" class="btnfiltros">Aprovados (crescente)</button>
         </grid>
         <br>
         <grid>
@@ -53,6 +53,7 @@
             <span class="subtitulo4">Sexo:</span>
             <span class="subtitulo4">Media:</span>
             <span class="subtitulo4">Situação:</span>
+            <button onclick="window.print()" >Imprimir Página</button>
         </grid>
         <ul id="listadealunos"></ul>
 

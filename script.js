@@ -9,6 +9,11 @@ const btnNomeCrescente = document.getElementById("btnNomeCrescente")
 const btnRaDecrescente = document.getElementById("btnRaDecrescente")
 const listadealunos = document.getElementById("listadealunos")
 const btnAprovados = document.getElementById("btnAprovados")
+const btnBuscar = document.getElementById("btnBuscar")
+let txtBuscar = document.getElementById("txtBusca")
+
+let AlunoBuscado = ""
+
 
 let listaAlunos = [{
     nome: "Amanda Nunes",
@@ -124,6 +129,41 @@ function bubbleSort(vetor, fnComp) {
      } while (trocou);
 }
 
+//Função para busca Binaria do aluno
+function buscaBinaria(vetor, fnComp) {
+
+     bubbleSort(listaAlunos,(elem1, elem2) => elem1.nome.toLowerCase() > elem2.nome.toLowerCase())
+     
+
+     let ini = 0
+     let fim = vetor.length - 1
+
+     while(fim >= ini) {
+
+          let meio = Math.floor((ini + fim) / 2)
+
+          let htmltext = `<li> ${vetor[meio].nome} - ${vetor[meio].RA} - ${vetor[meio].idade} - ${vetor[meio].genero} - ${vetor[meio].media} - ${vetor[meio].resultado} </li>`
+
+          switch(fnComp(vetor[meio])) {
+               case 0:   
+                    return htmltext
+               case 1:   
+                    ini = meio + 1
+                    break
+               default:   
+                    fim = meio - 1
+          }
+    }
+     return `<li> Aluno nao encontrado no sistema </li>`
+}
+
+//Função para compararação da busca binaria
+function comparar(valorMeio, valorBusca = AlunoBuscado) {
+    if(valorBusca === valorMeio.nome) return 0
+    else if(valorBusca > valorMeio.nome) return 1
+    else return -1
+}
+
 //Função para cadastrar aluno
 btnCadastrar.onclick = function () {
 
@@ -214,6 +254,7 @@ btnRaDecrescente.onclick = function () {
     renderizarListaAlunos()
 }
 
+//Função para renderizar alunos aprovados na tela
 function renderizarAlunosProvados() {
 
      let htmltext = ""
@@ -228,7 +269,6 @@ function renderizarAlunosProvados() {
      listadealunos.innerHTML = htmltext
 }
 
-
 // Botão - Função de ordenação Nomes apenas Aprovados
 btnAprovados.onclick = function () {
 
@@ -237,4 +277,11 @@ btnAprovados.onclick = function () {
           (elem1, elem2) => elem1.nome.toLowerCase() > elem2.nome.toLowerCase()
      )
      renderizarAlunosProvados();
+}
+
+//Botão para buscar por nome do aluno
+btnBuscar.onclick = function(){
+     AlunoBuscado = txtBuscar.value
+     listadealunos.innerHTML = buscaBinaria(listaAlunos,comparar)
+
 }
